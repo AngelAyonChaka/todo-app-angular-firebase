@@ -1,0 +1,130 @@
+.todo-container {
+  max-width: 520px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Input para agregar */
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #FFDD00;
+}
+
+.btn-add {
+  padding: 0.8rem 1.5rem;
+  background: #FFDD00;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-add:hover {
+  background: #e6c700;
+}
+
+/* Lista */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.todo-list li:hover {
+  background: #fafafa;
+}
+
+.todo-list li.completed .todo-title {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Botones de acciones */
+.actions {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.btn-edit, .btn-delete, .btn-save, .btn-cancel {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.btn-edit:hover { background: #e3f2fd; }
+.btn-delete:hover { background: #ffebee; }
+.btn-save:hover { background: #e8f5e9; }
+.btn-cancel:hover { background: #fff3e0; }
+
+/* Input de edición */
+.edit-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #FFDD00;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Mensaje vacío */
+.empty {
+  text-align: center;
+  color: #bbb;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #FFDD00;
+}
