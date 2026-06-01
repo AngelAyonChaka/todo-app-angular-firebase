@@ -1,0 +1,54 @@
+<div class="todo-container">
+  <h1>📝 Mi To-Do List</h1>
+
+  <!-- Agregar tarea -->
+  <div class="input-group">
+    <input
+      type="text"
+      [(ngModel)]="newTodoTitle"
+      (keyup.enter)="addTodo()"
+      placeholder="¿Qué necesitas hacer?"
+    />
+    <button (click)="addTodo()" class="btn-add">Agregar</button>
+  </div>
+
+  <!-- Lista de tareas -->
+  <ul class="todo-list">
+    @for (todo of todos$ | async; track todo.id) {
+      <li [class.completed]="todo.completed">
+
+        <!-- Modo normal -->
+        @if (editingId !== todo.id) {
+          <input
+            type="checkbox"
+            [checked]="todo.completed"
+            (change)="toggleTodo(todo)"
+          />
+          <span class="todo-title">{{ todo.title }}</span>
+          <div class="actions">
+            <button (click)="startEdit(todo)" class="btn-edit">✏️</button>
+            <button (click)="deleteTodo(todo.id!)" class="btn-delete">🗑️</button>
+          </div>
+        }
+
+        <!-- Modo edición -->
+        @if (editingId === todo.id) {
+          <input
+            type="text"
+            [(ngModel)]="editingTitle"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+          />
+          <div class="actions">
+            <button (click)="saveEdit()" class="btn-save">💾</button>
+            <button (click)="cancelEdit()" class="btn-cancel">❌</button>
+          </div>
+        }
+
+      </li>
+    } @empty {
+      <li class="empty">¡No hay tareas! Agrega una 🎉</li>
+    }
+  </ul>
+</div>
